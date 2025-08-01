@@ -4,7 +4,4 @@ from meu_app.controllers import Listar_Usuarios
 
 def home(request):
     users = Listar_Usuarios()
-    html = "<h1>Usuarios:</h1>"
-    for user in users:
-        html += f"<p><strong>{user.login}</strong>: {user.senha}</p>"
-    return HttpResponse(html)
+    return render(request, 'meu_app/index.html', {'users': users})
